@@ -1,3 +1,4 @@
+<img width="1024" height="1536" alt="AI-BASED SMART COTTON PEST MONITORING SYSTEM IMAGE" src="https://github.com/user-attachments/assets/417a7ca6-8d94-401c-922a-67ea6420ea5e" />
 # AI-Based-Smart-Cotton-Pest-Monitoring
 AI-based smart cotton pest monitoring systeem using IoT, ESP32, computer vision, and semi-automatic pheromone releasee for sustainable agriculture.
 
