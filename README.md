@@ -1,93 +1,213 @@
-<img width="1024" height="1536" alt="AI-BASED SMART COTTON PEST MONITORING SYSTEM IMAGE" src="https://github.com/user-attachments/assets/417a7ca6-8d94-401c-922a-67ea6420ea5e" />
-# AI-Based-Smart-Cotton-Pest-Monitoring
-AI-based smart cotton pest monitoring systeem using IoT, ESP32, computer vision, and semi-automatic pheromone releasee for sustainable agriculture.
+# Pherosense AI-SDG: SENSE.DETECT.GREEN
+
+AI-powered smart cotton pest monitoring system combining computer vision, IoT concepts, and Qualcomm AI Hub optimization for Snapdragon-powered devices.
 
 ## Overview
 
-This project is an AI and IoT-based smart agriculture solution designed to detect cotton pests at an early stage and reduce excessive pesticide usage. The system integrates soil sensors, ESP32, camera-based AI pest detection, UV light traps, pheromone traps, and a semi-automatic pheromone release mechanism to improve cotton yield and support sustainable farming.
+Pherosense AI-SDG is a smart agriculture solution designed to support early detection of cotton pests using an AI-based computer vision model.
+
+The system is designed to capture pest images, identify pest categories, estimate pest occurrence, and provide actionable monitoring information for farmers.
+
+For the Snapdragon AI Lab Build & Present Challenge, the trained YOLO11n model was exported to ONNX and compiled and profiled using Qualcomm AI Hub for a Snapdragon X Elite CRD.
 
 ## Problem Statement
 
-Cotton crops are severely affected by pests such as Pink Bollworm and Whitefly. Traditional pest monitoring depends on manual inspection, which is time-consuming and often detects infestations too late. Excessive pesticide use also increases production costs and harms the environment.
+Cotton crops can be affected by pests such as bollworms, whiteflies, thrips, and other harmful insects. Manual monitoring can be time-consuming and may delay detection.
+
+Pherosense aims to provide an AI-assisted approach for faster pest identification and monitoring.
 
 ## Proposed Solution
 
-The proposed system continuously monitors the cotton field using IoT sensors and AI image processing. When harmful pests are detected beyond a threshold, the farmer receives an alert and the servo motor releases pheromone automatically to reduce pest population.
-
-## Features
+The system combines:
 
 - AI-based pest detection
-- IoT-enabled monitoring
-- Soil moisture monitoring
-- Soil pH monitoring
-- ESP32 Controller
-- ESP32-CAM image capture
-- UV Light Trap
-- Semi-Automatic Pheromone Release
-- Mobile Notifications
-- Low-cost Smart Farming Solution
+- Image-based computer vision
+- ESP32 / ESP32-CAM based sensing concept
+- Soil monitoring sensors
+- Pest monitoring and counting
+- Pheromone trap integration concept
+- Farmer notification concept
+- Snapdragon-optimized AI inference
 
-## Hardware Components
+## AI Model
+
+### YOLO11n Pest Detection
+
+The pest detection model was trained using a cotton pest dataset containing:
+
+- 2,038 images
+- 7 pest classes
+- YOLO-format annotations
+- CC BY 4.0 licensed dataset
+
+### Pest Classes
+
+1. American Bollworm
+2. Aphid Colony
+3. Jassid Leafhopper
+4. Mealybug
+5. Pink Bollworm
+6. Thrips
+7. Whitefly Adult
+
+## Model Validation Results
+
+The trained YOLO11n model achieved the following validation results:
+
+| Metric | Result |
+|---|---:|
+| Precision | 81.7% |
+| Recall | 64.1% |
+| mAP@50 | 66.0% |
+| mAP@50-95 | 47.5% |
+
+These results were obtained on the validation dataset used during model development.
+
+## Qualcomm AI Hub Optimization
+
+The trained YOLO11n model was exported to ONNX format and prepared for Qualcomm AI Hub compilation.
+
+### Snapdragon Target
+
+**Device:** Snapdragon X Elite CRD  
+**Operating System:** Windows 11  
+**Runtime:** ONNX
+
+The model was successfully compiled using Qualcomm AI Hub.
+
+### AI Hub Results
+
+- Compile Job ID: `jg9z7n2vp`
+- Compiled Model ID: `mq33g2xrq`
+- Profile Job ID: `j5wl0eqmp`
+
+### Snapdragon X Elite Profile
+
+| Metric | Result |
+|---|---:|
+| Minimum Inference Time | 5.7 ms |
+| Median Inference Time | 5.8 ms |
+| Estimated Peak Memory | 5 MB |
+| NPU Compute Units | 334 |
+
+The reported performance values are from Qualcomm AI Hub profiling on the Snapdragon X Elite CRD.
+
+> Note: The developer's local computer used during model development is an Intel-based PC. The Snapdragon performance values above were obtained through Qualcomm AI Hub cloud profiling and should not be interpreted as measurements from a locally owned Snapdragon laptop.
+
+## System Workflow
+
+```text
+Image Capture
+      ↓
+YOLO11n AI Pest Detection
+      ↓
+Pest Classification
+      ↓
+Pest Count / Monitoring
+      ↓
+Threshold-Based Decision
+      ↓
+Farmer Notification
+      ↓
+Pheromone Trap / Control Concept
+
+## Proposed Hardware Components
 
 - ESP32
 - ESP32-CAM
 - Soil Moisture Sensor
-- pH Sensor
-- UV LED
+- Soil pH Sensor
+- Temperature Sensor
+- UV LED / Light Trap
 - Pheromone Trap
 - Servo Motor
-- Battery / Solar Power
+- Battery / Solar Power Supply
 - Connecting Wires
+## Software and Technologies
 
-## Software
-
-- Arduino IDE
 - Python
+- Ultralytics YOLO11n
+- ONNX
+- Qualcomm AI Hub
 - OpenCV
-- TensorFlow / YOLOv8
-- Firebase
-- MIT App Inventor / Flutter
+- Arduino IDE
+- ESP32 / ESP32-CAM
+- Flutter / Mobile Application
+AI-Based-Smart-Cotton-Pest-Monitoring/
+│
+├── data/
+│   └── Cotton-pests-Detection.v6i.yolov11/
+│
+├── docs/
+│
+├── models/
+│
+├── results/
+│
+├── src/
+│   └── detect_pest.py
+│
+├── runs/
+│   └── detect/
+│
+├── README.md
+└── requirements.txt
+## Sustainability
 
-## System Workflow
+Pherosense AI-SDG promotes sustainable cotton cultivation through AI-assisted pest monitoring.
 
-1. Sensors collect soil data.
-2. Camera captures pest images.
-3. AI identifies pest species.
-4. Pest count is compared with threshold.
-5. Farmer receives mobile alert.
-6. Servo motor releases pheromone.
-7. Pest population is reduced.
+The system is designed to:
 
-## Expected Outcomes
+- Support early identification of cotton pests
+- Enable data-driven pest monitoring
+- Support targeted pest management
+- Help reduce unnecessary pesticide application
+- Reduce manual monitoring effort
+- Promote environmentally responsible agricultural practices
+## SDG Alignment
 
-- Early pest detection
-- Reduced pesticide usage
-- Increased cotton yield
-- Lower farming cost
-- Sustainable agriculture
+### Primary SDG – SDG 15: Life on Land
 
+The project supports sustainable land and agricultural ecosystem management through AI-based pest monitoring and responsible pest-management practices.
+
+### Additional SDG Relevance
+
+- **SDG 2 – Zero Hunger:** Supports healthier crop production through early pest monitoring.
+- **SDG 9 – Industry, Innovation and Infrastructure:** Applies AI, IoT, and edge-AI technologies to agriculture.
+- **SDG 12 – Responsible Consumption and Production:** Supports more targeted use of agricultural inputs.
+- **SDG 13 – Climate Action:** Promotes technology-assisted and resource-conscious farming practices.
 ## Future Scope
 
-- Solar-powered system
-- Cloud dashboard
-- Multi-crop support
-- Drone integration
-- Weather prediction
+- Multi-crop pest detection
+- Offline mobile AI inference
+- Solar-powered field deployment
+- Weather-based pest risk prediction
+- Satellite-based crop stress monitoring
+- Automated pest-control mechanisms
+- Expanded Qualcomm AI Hub optimization
+- Edge AI deployment on Snapdragon-powered devices
+- Cloud-based farmer monitoring dashboard
+- Real-time pest population tracking
+## Dataset Attribution
 
-## SDGs Supported
+The cotton pest detection model was trained using the Cotton Pests Detection Dataset, Version 6, from Roboflow Universe.
 
-- SDG 2 – Zero Hunger
-- SDG 9 – Industry, Innovation and Infrastructure
-- SDG 12 – Responsible Consumption and Production
-- SDG 13 – Climate Action
-- SDG 15 – Life on Land
+- Dataset Source: Roboflow Universe
+- Project: Cotton Pests Detection
+- Version: 6
+- License: CC BY 4.0
 
-## Authors
+Source:
+https://universe.roboflow.com/shoaib-btznm/cotton-pests-detection/dataset/6
 
-Department of Electronics and Communication Engineering
+The dataset attribution and license requirements should be retained when using or redistributing the dataset.
+## Institution
 
-Sri Sairam Engineering College
+**Department of Electronics and Communication Engineering**  
+**Sri Sairam Engineering College**
 
-## License
+## Project
 
-This project is developed for academic and research purposes.
+**Pherosense AI-SDG: SENSE.DETECT.GREEN**
+
+Developed as an academic and research project and adapted for the Snapdragon AI Lab Build & Present Challenge.
